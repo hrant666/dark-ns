@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BLACKSTORE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="marquee"><div class="marquee-track">
+        <span>🔥 Скидка 20%! Промокод: FIRST20 | ⚡ Моментальная доставка | 🛡 Гарантия | 💎 Лучшие цены |</span>
+        <span>🔥 Скидка 20%! Промокод: FIRST20 | ⚡ Моментальная доставка | 🛡 Гарантия | 💎 Лучшие цены |</span>
+    </div></div>
+
+    <header class="app-header">
+        <div class="header-top">
+            <div class="logo">
+                <div class="logo-icon">B</div>
+                <div class="logo-text"><h1>BLACKSTORE</h1><p>Виртуальные товары Black Russia</p></div>
+            </div>
+            <div class="user-avatar" id="userAvatar">W</div>
+        </div>
+        <div class="user-greeting">
+            <span>Привет, <strong id="userName">Игрок</strong>! 👋</span>
+            <span class="online-badge">🟢 <span id="onlineCount">27</span> онлайн</span>
+        </div>
+        <div class="discount-timer">⏰ Скидка ещё: <strong id="timerDisplay">02:59:59</strong></div>
+    </header>
+
+    <div class="categories-scroll">
+        <button class="cat-btn active" data-cat="currency" onclick="switchCategory('currency')">💰 Валюта</button>
+        <button class="cat-btn" data-cat="transport" onclick="switchCategory('transport')">🚗 Транспорт</button>
+        <button class="cat-btn" data-cat="realty" onclick="switchCategory('realty')">🏠 Недвижимость</button>
+        <button class="cat-btn" data-cat="vip" onclick="switchCategory('vip')">⭐ VIP</button>
+    </div>
+
+    <main class="catalog" id="catalog"></main>
+
+    <section class="reviews-section">
+        <h2 class="section-title">⭐ Отзывы</h2>
+        <div class="reviews-slider" id="reviewsSlider"></div>
+    </section>
+
+    <div class="order-page hidden" id="orderPage">
+        <div class="order-header">
+            <button class="back-btn" onclick="closeOrderPage()">← Назад</button>
+            <h2>Оформление заказа</h2>
+        </div>
+        <div class="order-product-card" id="orderProductCard"></div>
+        <div class="order-form">
+            <div class="form-group">
+                <label>🎮 Сервер</label>
+                <select id="serverSelect">
+                    <option value="">Выберите...</option>
+                    <option>Phoenix</option><option>Arizona</option>
+                    <option>Dallas</option><option>Orlando</option>
+                    <option>Chicago</option><option>Denver</option>
+                    <option>Detroit</option><option>Houston</option>
+                    <option>Las Vegas</option><option>Los Angeles</option>
+                    <option>Miami</option><option>New York</option>
+                    <option>San Francisco</option><option>Seattle</option>
+                    <option>Washington</option>
+                </select>
+            </div>
+            <div class="form-group"><label>👤 Никнейм</label><input id="nicknameInput" placeholder="Ваш ник..."></div>
+            <div class="form-group"><label>🆔 ID в игре</label><input id="gameIdInput" placeholder="Ваш ID..."></div>
+            <div class="form-group">
+                <label>🏷 Промокод</label>
+                <div class="promo-row">
+                    <input id="promoInput" placeholder="Промокод...">
+                    <button class="promo-apply-btn" onclick="applyPromo()">OK</button>
+                </div>
+                <div class="promo-result" id="promoResult"></div>
+            </div>
+            <div class="order-total" id="orderTotal"></div>
+            <button class="submit-order-btn" onclick="submitOrder()">🛒 Оформить заказ</button>
+        </div>
+    </div>
+
+    <div class="about-page hidden" id="aboutPage">
+        <div class="order-header">
+            <button class="back-btn" onclick="showPage('catalog')">← Назад</button>
+            <h2>О нас</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-avatar">W</div>
+            <h3>Wite</h3>
+            <p class="about-username">@WiteBg</p>
+            <p class="about-text">Привет! Я Wite, продаю вирты Black Russia 2+ года. 5000+ клиентов. Быстро, честно, с гарантией.</p>
+            <a href="https://t.me/WiteBg" class="contact-btn" target="_blank">💬 Написать</a>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn active" onclick="showPage('catalog')" data-page="catalog">
+            <span class="nav-icon">🏪</span><span class="nav-text">Каталог</span>
+        </button>
+        <button class="nav-btn" onclick="showPage('about')" data-page="about">
+            <span class="nav-icon">ℹ️</span><span class="nav-text">О нас</span>
+        </button>
+        <button class="nav-btn" onclick="openSupport()" data-page="support">
+            <span class="nav-icon">💬</span><span class="nav-text">Помощь</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
